@@ -10,13 +10,13 @@ pipeline {
                  '''
              }
          }      
-//          stage('Upload to AWS') {
-//               steps {
-//                   withAWS(region:'us-west-2',credentials:'wach-jenkins-cred') {
-//                   sh 'echo "Uploading content with AWS creds"'
-//                       s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'app.py', bucket:'jenkins-s3-bucket-wach')
-//                   }
-//               }
-//          }
+         stage('Upload to AWS') {
+              steps {
+                  withAWS(region:'us-east-2',credentials:'jenkins-s3-cred') {
+                      sh 'echo "Uploading content with AWS creds"'
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'app.py', bucket:'jenkins1234jh')                       
+                  }
+              }
+         }
      }
 }
